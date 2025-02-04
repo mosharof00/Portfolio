@@ -36,6 +36,21 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   cached_network_image: ^3.4.1
+  hive: ^2.2.3
+  supabase_flutter: ^2.8.3
+  flutter_screenutil: ^5.9.3
+  awesome_bottom_bar: ^1.2.4
+  google_fonts: ^6.2.1
+  shimmer: ^3.0.0
+  flutter_svg: ^2.0.10+1
+  flutter_staggered_grid_view: ^0.7.0
+  flutter_staggered_animations: ^1.1.1
+  flutter_animate: ^4.5.2
+  logger: ^2.5.0
+  dio: ^5.8.0+1
+  path_provider: ^2.1.5
+  hive_flutter: ^1.1.0
+#  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +65,13 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+
+#flutter_launcher_icons:
+#  android: true
+#  ios: true
+#  image_path: "assets/logo/app_logo.png"
+#  remove_alpha_ios: true
 
 # The following section is specific to Flutter packages.
 flutter:
