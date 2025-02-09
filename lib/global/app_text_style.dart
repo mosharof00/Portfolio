@@ -31,13 +31,12 @@ class AppTextStyle extends StatelessWidget {
       text.tr,
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLines,
-      style: GoogleFonts.outfit(
+      style: GoogleFonts.ibmPlexSerif(
           textStyle: TextStyle(
         color: color ?? ColorName.black,
-        fontSize: fontSize?.sp ?? 14.sp,
-        // fontFamily: FontFamily.lato,
+        fontSize: fontSize ?? 14.sp,
         fontWeight: fontWeight,
-        height: height,
+        height: height?.h,
         decoration: decoration,
             decorationColor: decorationColor,
       )),
