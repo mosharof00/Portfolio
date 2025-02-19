@@ -33,7 +33,7 @@ Widget globalButton(
         decoration: BoxDecoration(
           color: color ?? ColorName.primaryColor,
           gradient: gradient,
-          borderRadius: borderRadius ?? BorderRadius.circular(50.r),
+          borderRadius: borderRadius ?? BorderRadius.circular(5.r),
           border: Border.all(color: borderColor ?? Colors.transparent),
           boxShadow: boxShadow ??
               [
@@ -51,7 +51,7 @@ Widget globalButton(
             AppTextStyle(
               text: text,
               color: textColor ?? Colors.white,
-              fontSize: fontSize ?? 16.sp,
+              fontSize: fontSize ?? 15,
               fontWeight: fontWeight ?? FontWeight.w500,
             ),
             suffixWidget ?? 0.width,

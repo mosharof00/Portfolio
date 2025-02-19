@@ -34,7 +34,7 @@ class AppTextStyle extends StatelessWidget {
       style: GoogleFonts.ibmPlexSerif(
           textStyle: TextStyle(
         color: color ?? ColorName.black,
-        fontSize: fontSize ?? 14.sp,
+        fontSize: fontSize ?? 14,
         fontWeight: fontWeight,
         height: height?.h,
         decoration: decoration,
