@@ -17,6 +17,7 @@ import '../../../../gen/assets.gen.dart';
 import '../../../../global/cached_image_helper.dart';
 import '../../../../helper/responsive_layout.dart';
 import '../controllers/home_controller.dart';
+import '../widgets/home_static_list.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -291,8 +292,34 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ],
               ),
-            )
-           
+            ),
+           20.height,
+            Padding(
+              padding: EdgeInsets.only(left: 15.w, right: 15.w),
+              child: MasonryGridView.count(
+                // scrollDirection: Axis.horizontal,
+                  physics: NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.zero,
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 10.h,
+                  crossAxisSpacing: 10.w,
+                  itemCount:
+                  HomeStaticList.specialties.length,
+                  itemBuilder: (context, index) {
+                    final specialist = HomeStaticList.specialties[index];
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 300),
+                      child: ScaleAnimation(
+                          child: Container(
+                            height: 200.h,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade300
+                            ),
+                          )),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
