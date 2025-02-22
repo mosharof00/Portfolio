@@ -84,7 +84,6 @@ flutter:
     - assets/images/
     - assets/logo/
     - assets/icons/
-    - assets/fonts/
 
 #  fonts:
 #    - family: FlutterCustomIconsFont  # Match _kFontFam in the dart file
