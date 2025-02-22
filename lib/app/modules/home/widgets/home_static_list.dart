@@ -30,12 +30,6 @@ class HomeStaticList {
           "Integrating REST API, GraphQL, Firebase, and WordPress APIs seamlessly.",
     ),
     SpecialityModel(
-      title: "E-commerce & Payment Integration",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Developing single & multi-vendor e-commerce apps with Stripe, Razorpay, PayPal.",
-    ),
-    SpecialityModel(
       title: "Database & Storage",
       icon: Assets.icons.upArrowIcon,
       description:
@@ -46,18 +40,6 @@ class HomeStaticList {
       icon: Assets.icons.upArrowIcon,
       description:
           "Using FVM, GitHub Actions, and Fastlane for automated builds and deployments.",
-    ),
-    SpecialityModel(
-      title: "Push Notifications & Deep Linking",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Implementing Firebase Cloud Messaging (FCM) and deep linking for engagement.",
-    ),
-    SpecialityModel(
-      title: "Localization & Multi-language Support",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Building apps with internationalization and RTL language support.",
     ),
   ];
 }

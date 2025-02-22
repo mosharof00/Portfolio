@@ -5,9 +5,11 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'package:get/get.dart';
+import 'package:portfolio/app/modules/home/widgets/hello_container.dart';
 import 'package:portfolio/app/modules/home/widgets/service_description.dart';
 import 'package:portfolio/gen/colors.gen.dart';
 import 'package:portfolio/global/app_text_style.dart';
+import 'package:portfolio/global/app_text_style_over_flow.dart';
 import 'package:portfolio/global/custom_svg_image.dart';
 import 'package:portfolio/global/global_button.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
@@ -27,7 +29,6 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-
           children: [
             Container(
                 height: Responsive2.isMobile(context)
@@ -264,7 +265,7 @@ class HomeView extends GetView<HomeController> {
                 )),
             50.height,
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
                   Row(
@@ -274,52 +275,110 @@ class HomeView extends GetView<HomeController> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AppTextStyle(text: "Services",
+                            AppTextStyle(
+                              text: "Services",
                               color: ColorName.primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
-
-                            AppTextStyle(text: "My specialties",
+                            AppTextStyle(
+                              text: "My specialties",
                               fontSize: 18.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ],
                         ),
                       ),
-                      Responsive.isMobile(context)?0.width:Expanded(child: serviceDescription())
+                      Responsive.isMobile(context)
+                          ? 0.width
+                          : Expanded(child: serviceDescription())
                     ],
                   ),
                 ],
               ),
             ),
-           20.height,
+            20.height,
             Padding(
-              padding: EdgeInsets.only(left: 15.w, right: 15.w),
-              child: MasonryGridView.count(
-                // scrollDirection: Axis.horizontal,
-                  physics: NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.zero,
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 10.h,
-                  crossAxisSpacing: 10.w,
-                  itemCount:
-                  HomeStaticList.specialties.length,
-                  itemBuilder: (context, index) {
-                    final specialist = HomeStaticList.specialties[index];
-                    return AnimationConfiguration.staggeredList(
-                      position: index,
-                      duration: const Duration(milliseconds: 300),
-                      child: ScaleAnimation(
-                          child: Container(
-                            height: 200.h,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade300
-                            ),
-                          )),
-                    );
-                  }),
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: MasonryGridView.count(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          padding: EdgeInsets.zero,
+                          crossAxisCount: Responsive.isMobile(context) ? 2 : 3,
+                          mainAxisSpacing: 10.h,
+                          crossAxisSpacing: 10.w,
+                          itemCount: HomeStaticList.specialties.length,
+                          itemBuilder: (context, index) {
+                            final specialist = HomeStaticList.specialties[index];
+                            return AnimationConfiguration.staggeredList(
+                              position: index,
+                              duration: const Duration(milliseconds: 500),
+                              child: ScaleAnimation(
+                                child: Container(
+                                  height: 150.h,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade200,
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 50.h,
+                                        width: 50.w,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                        ),
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.ac_unit,
+                                            color: ColorName.primaryColor,
+                                          ),
+                                        ),
+                                      ),
+                                      AppTextStyle(
+                                        text: specialist.title,
+                                      ),
+                                      AppTextStyleOverFlow(
+                                        text: specialist.description,
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      Responsive.isWeb(context)
+                          ? Expanded(
+                              flex: 1,
+                              child: helloContainer( height: 310.h,
+                                margin: EdgeInsets.only(left: 10.w),))
+                          : SizedBox.shrink()
+                    ],
+                  ),
+                  20.height,
+                  Responsive.isWeb(context)? SizedBox.shrink()
+                      :helloContainer(height: 150, width: 200.w)
+
+                ],
+              ),
             ),
+
+            200.height,
           ],
         ),
       ),
