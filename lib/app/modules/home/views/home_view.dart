@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'package:get/get.dart';
-import 'package:portfolio/app/modules/home/widgets/service_description.dart';
+import 'package:portfolio/app/modules/home/widgets/my_specialties.dart';
 import 'package:portfolio/gen/colors.gen.dart';
 import 'package:portfolio/global/app_text_style.dart';
 import 'package:portfolio/global/custom_svg_image.dart';
@@ -24,6 +22,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     print('Screen width: ${Responsive2.screenWidth(context)}');
+    Get.put(HomeController(), permanent: true);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -270,64 +269,8 @@ class HomeView extends GetView<HomeController> {
                     ],
                   )),
               50.height,
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              AppTextStyle(
-                                text: "Services",
-                                color: ColorName.primaryColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              AppTextStyle(
-                                text: "My specialties",
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Responsive.isMobile(context)
-                            ? 0.width
-                            : Expanded(child: serviceDescription())
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              20.height,
-              Padding(
-                padding: EdgeInsets.only(left: 15.w, right: 15.w),
-                child: MasonryGridView.count(
-                    // scrollDirection: Axis.horizontal,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 10.h,
-                    crossAxisSpacing: 10.w,
-                    itemCount: HomeStaticList.specialties.length,
-                    itemBuilder: (context, index) {
-                      final specialist = HomeStaticList.specialties[index];
-                      return AnimationConfiguration.staggeredList(
-                        position: index,
-                        duration: const Duration(milliseconds: 300),
-                        child: ScaleAnimation(
-                            child: Container(
-                          height: 200.h,
-                          decoration:
-                              BoxDecoration(color: Colors.grey.shade300),
-                        )),
-                      );
-                    }),
+              MySpecialties(
+                context: context,
               ),
               20.height,
             ],

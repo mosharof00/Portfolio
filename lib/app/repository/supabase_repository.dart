@@ -61,12 +61,22 @@ class SupabaseRepository {
   }
 
   // Function to fetch data from a table with a filter
-  Future<List<dynamic>> fetchDataWithFilter(
+
+  Future<Map<String, dynamic>?> fetchSingleRowData(
       {required String tableName,
-      required String column,
-      required String value}) async {
+        required String column,
+        required dynamic value}) async {
     try {
-      final response = await _client.from(tableName).select().eq(column, value);
+      final response = await _client
+          .from(tableName) // Replace with your table name
+          .select()
+          .eq(column, value) // Replace with your UUID column name
+          .single(); // Fetch only one row
+
+      if (response.isEmpty) {
+        Log.e('No data found');
+        return null;
+      }
       return response;
     } catch (e) {
       throw Exception('Error fetching data: $e');
