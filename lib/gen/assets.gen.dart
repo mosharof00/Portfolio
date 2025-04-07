@@ -18,8 +18,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/back.svg
   String get back => 'assets/icons/back.svg';
 
+  /// File path: assets/icons/up_arrow_icon.svg
+  String get upArrowIcon => 'assets/icons/up_arrow_icon.svg';
+
   /// List of all assets
-  List<String> get values => [arrowBackIcon, back];
+  List<String> get values => [arrowBackIcon, back, upArrowIcon];
 }
 
 class $AssetsImagesGen {
@@ -41,9 +44,13 @@ class $AssetsImagesGen {
   AssetGenImage get placeholderImage =>
       const AssetGenImage('assets/images/placeholder_image.jpg');
 
+  /// File path: assets/images/shape_image.png
+  AssetGenImage get shapeImage =>
+      const AssetGenImage('assets/images/shape_image.png');
+
   /// List of all assets
   List<AssetGenImage> get values =>
-      [emptyResult, errorImage, homeIcon, placeholderImage];
+      [emptyResult, errorImage, homeIcon, placeholderImage, shapeImage];
 }
 
 class $AssetsLogoGen {

@@ -1,13 +1,45 @@
 import 'package:flutter/material.dart';
 
-class ResponsiveLayout extends StatelessWidget {
+class Responsive extends StatelessWidget {
+  final Widget mobile;
+  final Widget? tablet;
+  final Widget web;
+
+  const Responsive({
+    super.key,
+    required this.mobile,
+    this.tablet,
+    required this.web,
+  });
+
+  static double screenWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width;
+
+  static bool isMobile(BuildContext context) => screenWidth(context) < 768;
+  static bool isTablet(BuildContext context) =>
+      screenWidth(context) >= 768 && screenWidth(context) < 1280;
+  static bool isWeb(BuildContext context) => screenWidth(context) >= 1280;
+
+  @override
+  Widget build(BuildContext context) {
+    if (isWeb(context)) {
+      return web;
+    } else if (tablet != null && isTablet(context)) {
+      return tablet!;
+    } else {
+      return mobile;
+    }
+  }
+}
+
+class Responsive2 extends StatelessWidget {
   final Widget mobile;
   final Widget? mobileToTablet;
   final Widget? tablet;
   final Widget? tabletToWeb;
   final Widget web;
 
-  const ResponsiveLayout({
+  const Responsive2({
     super.key,
     required this.mobile,
     this.mobileToTablet,

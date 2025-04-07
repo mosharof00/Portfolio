@@ -2,28 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app/modules/home/bindings/home_binding.dart';
 import 'app/routes/app_pages.dart';
 import 'app/services/local_store_config.dart';
+import 'config/app_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   ///    Initialize Firebase
-  //
-  //
   // await Firebase.initializeApp(
-  //   name:AppConfig.appFirebase,
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
+  ///    Initialize Supabase
+  await Supabase.initialize(
+    url: AppConfig.SUPABASE_URL,
+    anonKey: AppConfig.SUPABASE_ANON_KEY,
+  );
 
-  // await Supabase.initialize(
-  //   url: AppConfig.SUPABASE_URL,
-  //   anonKey: AppConfig.SUPABASE_ANON_KEY,
-  // );
-
-  await _setupApp();
+  // await _setupApp();
   runApp(const MyApp());
 }
 
