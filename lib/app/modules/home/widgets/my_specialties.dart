@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/gen/assets.gen.dart';
+import 'package:portfolio/global/custom_svg_image.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
 
 import '../../../../gen/colors.gen.dart';
@@ -79,10 +81,42 @@ class MySpecialties extends StatelessWidget {
                         duration: const Duration(milliseconds: 300),
                         child: ScaleAnimation(
                             child: Container(
-                          height: 150.h,
+                          height: 120.h,
+                          padding: EdgeInsets.all(10.r),
                           decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
+                            color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle),
+                                      child: Center(
+                                          child: customSvgImage(
+                                        imagePath: specialist.icon,
+                                        height: 30,
+                                        width: 30,
+                                      ))),
+                                  customSvgImage(
+                                      imagePath: Assets.icons.upArrowIcon,
+                                      color: Colors.grey,height: 20,width: 20)
+                                ],
+                              ),
+                              AppTextStyle(text: specialist.title,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              )
+                            ],
                           ),
                         )),
                       );
@@ -99,7 +133,7 @@ class MySpecialties extends StatelessWidget {
         ),
         Responsive.isMobile(context)
             ? _helloContainer(
-                margin: EdgeInsets.all(10.r), height: 150.h, width: Get.width)
+                margin: EdgeInsets.all(15.r), height: 150.h, width: Get.width)
             : SizedBox.shrink()
       ],
     );
@@ -112,16 +146,22 @@ Widget _helloContainer(
     height: height ?? 200.h,
     width: width,
     margin: margin,
-    padding: EdgeInsets.all(10),
+    padding: EdgeInsets.all(15),
     decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(10.r),
         border: Border.all(color: Colors.white70, width: 0.5)),
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(
-          Icons.arrow_forward,
-          color: ColorName.primaryColor,
+        Align(
+          alignment: Alignment.topRight,
+          child: customSvgImage(
+              imagePath: Assets.icons.upArrowIcon,
+              color: ColorName.primaryColor,
+          height: 35,
+            width: 35,
+          )
         ),
         Spacer(),
         AppTextStyle(

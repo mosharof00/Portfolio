@@ -54,21 +54,19 @@ class ColorName {
   ///   700: #FFEE1F41
   ///   800: #FFEC1938
   ///   900: #FFE80F28
-  static const MaterialColor crimsonRed = MaterialColor(
-    0xFFF22952,
-    <int, Color>{
-      50: Color(0xFFFDE5EA),
-      100: Color(0xFFFBBFCB),
-      200: Color(0xFFF994A9),
-      300: Color(0xFFF66986),
-      400: Color(0xFFF4496C),
-      500: Color(0xFFF22952),
-      600: Color(0xFFF0244B),
-      700: Color(0xFFEE1F41),
-      800: Color(0xFFEC1938),
-      900: Color(0xFFE80F28),
-    },
-  );
+  static const MaterialColor crimsonRed =
+      MaterialColor(0xFFF22952, <int, Color>{
+        50: Color(0xFFFDE5EA),
+        100: Color(0xFFFBBFCB),
+        200: Color(0xFFF994A9),
+        300: Color(0xFFF66986),
+        400: Color(0xFFF4496C),
+        500: Color(0xFFF22952),
+        600: Color(0xFFF0244B),
+        700: Color(0xFFEE1F41),
+        800: Color(0xFFEC1938),
+        900: Color(0xFFE80F28),
+      });
 
   /// Color: #F2C1EA
   static const Color end = Color(0xFFF2C1EA);
@@ -138,34 +136,30 @@ class ColorName {
   ///   700: #FFD7821D
   ///   800: #FFD27817
   ///   900: #FFCA670E
-  static const MaterialColor yellowOcher = MaterialColor(
-    0xFFDF9527,
-    <int, Color>{
-      50: Color(0xFFFBF2E5),
-      100: Color(0xFFF5DFBE),
-      200: Color(0xFFEFCA93),
-      300: Color(0xFFE9B568),
-      400: Color(0xFFE4A547),
-      500: Color(0xFFDF9527),
-      600: Color(0xFFDB8D23),
-      700: Color(0xFFD7821D),
-      800: Color(0xFFD27817),
-      900: Color(0xFFCA670E),
-    },
-  );
+  static const MaterialColor yellowOcher =
+      MaterialColor(0xFFDF9527, <int, Color>{
+        50: Color(0xFFFBF2E5),
+        100: Color(0xFFF5DFBE),
+        200: Color(0xFFEFCA93),
+        300: Color(0xFFE9B568),
+        400: Color(0xFFE4A547),
+        500: Color(0xFFDF9527),
+        600: Color(0xFFDB8D23),
+        700: Color(0xFFD7821D),
+        800: Color(0xFFD27817),
+        900: Color(0xFFCA670E),
+      });
 
   /// MaterialAccentColor:
   ///   100: #FFFFE8E0
   ///   200: #FFFFBCA3
   ///   400: #FFFFA989
   ///   700: #FFFF9E7A
-  static const MaterialAccentColor yellowOcherAccent = MaterialAccentColor(
-    0xFFFFBCA3,
-    <int, Color>{
-      100: Color(0xFFFFE8E0),
-      200: Color(0xFFFFBCA3),
-      400: Color(0xFFFFA989),
-      700: Color(0xFFFF9E7A),
-    },
-  );
+  static const MaterialAccentColor yellowOcherAccent =
+      MaterialAccentColor(0xFFFFBCA3, <int, Color>{
+        100: Color(0xFFFFE8E0),
+        200: Color(0xFFFFBCA3),
+        400: Color(0xFFFFA989),
+        700: Color(0xFFFF9E7A),
+      });
 }

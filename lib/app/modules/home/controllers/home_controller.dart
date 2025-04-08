@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:portfolio/app/models/project_model.dart';
+import 'package:portfolio/app/models/speciality_model.dart';
 
 import '../../../../global/global_snackbar.dart';
 import '../../../../helper/logger.dart';
@@ -47,6 +48,9 @@ class HomeController extends GetxController {
   }
 
 
+
+
+  
   @override
   void onInit() {
     // TODO: implement onInit

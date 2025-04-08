@@ -4,42 +4,46 @@ import '../../../models/speciality_model.dart';
 
 class HomeStaticList {
 // List of specialties
- static List<SpecialityModel> specialties = [
+  static List<SpecialityModel> specialties = [
     SpecialityModel(
-      title: "Cross-Platform App Development",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Building high-performance apps for iOS & Android using Flutter.",
-    ),
+        title: "Mobile Apps Development",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Cross-platform mobile application design and development with Flutter and Dart."),
     SpecialityModel(
-      title: "State Management",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Expert in GetX, Riverpod, Provider, and BLoC for managing app state efficiently.",
-    ),
+        title: "Backend Development with Fiber(Go)",
+        icon: Assets.icons.backendDevelopmentIccon,
+        description:
+            "Building scalable and efficient backend systems using Fiber and databases."),
     SpecialityModel(
-      title: "UI/UX & Custom Animations",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Creating responsive, smooth, and visually appealing Flutter UI.",
-    ),
+        title: "Clean Architecture & Design Patterns (GetX, Block)",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Implementing Clean Architecture, MVVM, MVC, and Modular Architecture for maintainable and scalable apps."),
     SpecialityModel(
-      title: "Backend & API Integration",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Integrating REST API, GraphQL, Firebase, and WordPress APIs seamlessly.",
-    ),
+        title: "CI/CD and App Distribution",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Setting up CI/CD pipelines using GitHub Actions, Google Console for app distribution, and regular app maintenance."),
     SpecialityModel(
-      title: "Database & Storage",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Working with Firestore, SQLite, Hive, and Isar for efficient data storage.",
-    ),
+        title: "Problem-Solving & Debugging",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Strong analytical abilities for troubleshooting and debugging complex issues, ensuring efficient app performance."),
     SpecialityModel(
-      title: "CI/CD & Code Optimization",
-      icon: Assets.icons.upArrowIcon,
-      description:
-          "Using FVM, GitHub Actions, and Fastlane for automated builds and deployments.",
-    ),
+        title: "Agile Methodologies",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Experience working in Agile environments, managing tasks, and collaborating with cross-functional teams."),
+    SpecialityModel(
+        title: "E-Commerce Solutions",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Developing complete e-commerce solutions with user-friendly UI and robust backend, including integration with payment systems."),
+    SpecialityModel(
+        title: "API Development & Integration",
+        icon: Assets.icons.flutterIcon,
+        description:
+            "Building RESTful APIs and integrating third-party services into mobile and web applications."),
   ];
 }
