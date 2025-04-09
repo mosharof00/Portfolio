@@ -65,62 +65,72 @@ class MySpecialties extends StatelessWidget {
             children: [
               Expanded(
                 flex: 3,
-                child: MasonryGridView.count(
-                    // scrollDirection: Axis.horizontal,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    crossAxisCount: Responsive.isMobile(context) ? 2 : 3,
-                    mainAxisSpacing: 10.h,
-                    crossAxisSpacing: 10.w,
-                    itemCount: HomeStaticList.specialties.length,
-                    itemBuilder: (context, index) {
-                      final specialist = HomeStaticList.specialties[index];
-                      return AnimationConfiguration.staggeredList(
-                        position: index,
-                        duration: const Duration(milliseconds: 300),
-                        child: ScaleAnimation(
-                            child: Container(
-                          height: 120.h,
-                          padding: EdgeInsets.all(10.r),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          shape: BoxShape.circle),
-                                      child: Center(
-                                          child: customSvgImage(
-                                        imagePath: specialist.icon,
-                                        height: 30,
-                                        width: 30,
-                                      ))),
-                                  customSvgImage(
-                                      imagePath: Assets.icons.upArrowIcon,
-                                      color: Colors.grey,height: 20,width: 20)
-                                ],
-                              ),
-                              AppTextStyle(text: specialist.title,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                              )
-                            ],
-                          ),
-                        )),
-                      );
-                    }),
+                child: AnimationLimiter(
+                  child: MasonryGridView.count(
+                      // scrollDirection: Axis.horizontal,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      padding: EdgeInsets.zero,
+                      crossAxisCount: Responsive.isMobile(context) ? 2 : 3,
+                      mainAxisSpacing: 10.h,
+                      crossAxisSpacing: 10.w,
+                      itemCount: HomeStaticList.specialties.length,
+                      itemBuilder: (context, index) {
+                        final specialist = HomeStaticList.specialties[index];
+                        return AnimationConfiguration.staggeredList(
+                            position: index,
+                            child: ScaleAnimation(
+                                duration: const Duration(milliseconds: 800),
+                                child: Container(
+                                  height: 120.h,
+                                  padding: EdgeInsets.all(10.r),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade200,
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                              height: 50,
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle),
+                                              child: Center(
+                                                  child: customSvgImage(
+                                                imagePath: specialist.icon,
+                                                height: 30,
+                                                width: 30,
+                                              ))),
+                                          customSvgImage(
+                                              imagePath:
+                                                  Assets.icons.upArrowIcon,
+                                              color: Colors.grey,
+                                              height: 20,
+                                              width: 20)
+                                        ],
+                                      ),
+                                      AppTextStyle(
+                                        text: specialist.title,
+                                        maxLines: 3,
+                                        fontSize: Responsive.isMobile(context)
+                                            ? 10.sp
+                                            : 15,
+                                        fontWeight: FontWeight.w600,
+                                      )
+                                    ],
+                                  ),
+                                )));
+                      }),
+                ),
               ),
               Responsive.isMobile(context)
                   ? SizedBox.shrink()
@@ -155,14 +165,13 @@ Widget _helloContainer(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Align(
-          alignment: Alignment.topRight,
-          child: customSvgImage(
+            alignment: Alignment.topRight,
+            child: customSvgImage(
               imagePath: Assets.icons.upArrowIcon,
               color: ColorName.primaryColor,
-          height: 35,
-            width: 35,
-          )
-        ),
+              height: 35,
+              width: 35,
+            )),
         Spacer(),
         AppTextStyle(
           text: "SAY HELLO!",

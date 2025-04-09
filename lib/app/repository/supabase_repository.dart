@@ -41,6 +41,22 @@ class SupabaseRepository {
     }
   }
 
+
+
+
+  ///                  RPC   Functions                 ///
+
+  ///  Get Near by Jobs
+  Future<List<Map<String, dynamic>>> getProjects() async {
+    try {
+      final response = await _client.rpc('get_projects');
+      return List<Map<String, dynamic>>.from(response);
+    } catch (e) {
+      Log.e('Error fetching get_projects: $e');
+      return [];
+    }
+  }
+
   // Function to log out a user
   Future<void> signOut() async {
     try {

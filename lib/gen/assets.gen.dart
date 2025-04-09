@@ -53,6 +53,20 @@ class $AssetsImagesGen {
   AssetGenImage get homeIcon =>
       const AssetGenImage('assets/images/home_icon.png');
 
+  /// File path: assets/images/mosharof_header_image.svg
+  String get mosharofHeaderImage => 'assets/images/mosharof_header_image.svg';
+
+  /// File path: assets/images/mosharof_header_png.png
+  AssetGenImage get mosharofHeaderPng =>
+      const AssetGenImage('assets/images/mosharof_header_png.png');
+
+  /// File path: assets/images/mosharof_smarter_image.svg
+  String get mosharofSmarterImage => 'assets/images/mosharof_smarter_image.svg';
+
+  /// File path: assets/images/mosharof_smarter_png.png
+  AssetGenImage get mosharofSmarterPng =>
+      const AssetGenImage('assets/images/mosharof_smarter_png.png');
+
   /// File path: assets/images/placeholder_image.jpg
   AssetGenImage get placeholderImage =>
       const AssetGenImage('assets/images/placeholder_image.jpg');
@@ -62,10 +76,14 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/shape_image.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
     emptyResult,
     errorImage,
     homeIcon,
+    mosharofHeaderImage,
+    mosharofHeaderPng,
+    mosharofSmarterImage,
+    mosharofSmarterPng,
     placeholderImage,
     shapeImage,
   ];

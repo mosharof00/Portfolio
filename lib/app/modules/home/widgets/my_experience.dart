@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
 import '../../../../global/app_text_style.dart';
 import '../../../../global/global_button.dart';
@@ -58,8 +59,16 @@ class MyExperience extends StatelessWidget {
                     ),
                     AppTextStyle(
                       text: "Flutter Developer",
-                      fontSize: 16,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    15.height,
+                    AppTextStyle(
+                      text:
+                          "Highly motivated and experienced Flutter Developer with hands-on professional experience developing and deploying impactful mobile applications. Proven ability to lead projects, translate requirements into robust code, and deliver high-quality, scalable solutions. Adept at collaborating within teams and continuously learning new technologies to drive impactful results. Seeking to contribute expertise in mobile development to a dynamic engineering team at a leading tech company.",
+                      fontSize: 14,
                       color: Colors.black87,
+                      textAlign: TextAlign.start,
                     ),
                     40.height,
                     Row(
@@ -130,23 +139,14 @@ Widget _image(
     children: [
       Align(
         alignment: alignment,
-        child: Container(
-          height: 300,
-          width: 250,
-          decoration: BoxDecoration(
-              color: ColorName.primaryColor.withAlpha(70),
-              borderRadius: BorderRadius.circular(20.r)),
-          child: Stack(children: [
-            // Image.asset('assets/images/shape_image.png',
-            // fit: BoxFit.cover,
-            // ),
+        child: SizedBox(
+          height:Responsive.isMobile(context) ||Responsive.isTablet(context)? 500:600,
+          width: Responsive.isMobile(context) ||Responsive.isTablet(context)?400:500,
 
-            Center(
-                child: AppTextStyle(
-              text: Responsive2.screenWidth(context).toString(),
-              color: Colors.white,
-            )),
-          ]),
+          child: Image.asset(
+            Assets.images.mosharofSmarterPng.path,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       Positioned(
@@ -181,7 +181,6 @@ Widget _image(
                       ),
                     ],
                     isRepeatingAnimation: true,
-
                   ),
                 ),
               ),
@@ -199,7 +198,8 @@ Widget _image(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      speed: const Duration(milliseconds: 200), // Adjust this for slower/faster
+                      speed: const Duration(
+                          milliseconds: 200), // Adjust this for slower/faster
                     ),
                   ],
                   totalRepeatCount: 1,
@@ -209,7 +209,6 @@ Widget _image(
                   // stopPauseOnTap: true,
                 ),
               )
-
             ],
           ))
     ],
