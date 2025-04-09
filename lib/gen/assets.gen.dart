@@ -18,11 +18,24 @@ class $AssetsIconsGen {
   /// File path: assets/icons/back.svg
   String get back => 'assets/icons/back.svg';
 
+  /// File path: assets/icons/backend_development_iccon.svg
+  String get backendDevelopmentIccon =>
+      'assets/icons/backend_development_iccon.svg';
+
+  /// File path: assets/icons/flutter_icon.svg
+  String get flutterIcon => 'assets/icons/flutter_icon.svg';
+
   /// File path: assets/icons/up_arrow_icon.svg
   String get upArrowIcon => 'assets/icons/up_arrow_icon.svg';
 
   /// List of all assets
-  List<String> get values => [arrowBackIcon, back, upArrowIcon];
+  List<String> get values => [
+    arrowBackIcon,
+    back,
+    backendDevelopmentIccon,
+    flutterIcon,
+    upArrowIcon,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -40,6 +53,20 @@ class $AssetsImagesGen {
   AssetGenImage get homeIcon =>
       const AssetGenImage('assets/images/home_icon.png');
 
+  /// File path: assets/images/mosharof_header_image.svg
+  String get mosharofHeaderImage => 'assets/images/mosharof_header_image.svg';
+
+  /// File path: assets/images/mosharof_header_png.png
+  AssetGenImage get mosharofHeaderPng =>
+      const AssetGenImage('assets/images/mosharof_header_png.png');
+
+  /// File path: assets/images/mosharof_smarter_image.svg
+  String get mosharofSmarterImage => 'assets/images/mosharof_smarter_image.svg';
+
+  /// File path: assets/images/mosharof_smarter_png.png
+  AssetGenImage get mosharofSmarterPng =>
+      const AssetGenImage('assets/images/mosharof_smarter_png.png');
+
   /// File path: assets/images/placeholder_image.jpg
   AssetGenImage get placeholderImage =>
       const AssetGenImage('assets/images/placeholder_image.jpg');
@@ -49,8 +76,17 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/shape_image.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [emptyResult, errorImage, homeIcon, placeholderImage, shapeImage];
+  List<dynamic> get values => [
+    emptyResult,
+    errorImage,
+    homeIcon,
+    mosharofHeaderImage,
+    mosharofHeaderPng,
+    mosharofSmarterImage,
+    mosharofSmarterPng,
+    placeholderImage,
+    shapeImage,
+  ];
 }
 
 class $AssetsLogoGen {
@@ -68,7 +104,7 @@ class $AssetsLogoGen {
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
@@ -76,11 +112,7 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
 
@@ -108,7 +140,7 @@ class AssetGenImage {
     bool gaplessPlayback = true,
     bool isAntiAlias = false,
     String? package,
-    FilterQuality filterQuality = FilterQuality.low,
+    FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
   }) {
@@ -140,15 +172,8 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:portfolio/app/modules/home/controllers/home_controller.dart';
 import 'package:portfolio/app/routes/app_pages.dart';
 
 import '../../../services/local_store_config.dart';
@@ -10,6 +11,7 @@ class SplashController extends GetxController {
   Future<void> _navigateToMainPage() async {
     await _setupApp();
 
+     Get.put(HomeController(),permanent: true);
     // Future.delayed(Duration(seconds: 1));
     Get.offAllNamed(Routes.HOME);
   }
