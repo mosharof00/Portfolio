@@ -6,12 +6,12 @@ class HomeStaticList {
 // List of specialties
   static List<SpecialityModel> specialties = [
     SpecialityModel(
-        title: "Mobile Apps Development",
+        title: "Full-Stack Apps Development with Flutter",
         icon: Assets.icons.flutterIcon,
         description:
             "Cross-platform mobile application design and development with Flutter and Dart."),
     SpecialityModel(
-        title: "Backend Development with Fiber(Go)",
+        title: "Backend Development with Fiber(Go) [Intermediate]",
         icon: Assets.icons.backendDevelopmentIccon,
         description:
             "Building scalable and efficient backend systems using Fiber and databases."),
@@ -21,7 +21,7 @@ class HomeStaticList {
         description:
             "Implementing Clean Architecture, MVVM, MVC, and Modular Architecture for maintainable and scalable apps."),
     SpecialityModel(
-        title: "CI/CD and App Distribution",
+        title: "CI/CD, Performance Optimization and App Distribution",
         icon: Assets.icons.flutterIcon,
         description:
             "Setting up CI/CD pipelines using GitHub Actions, Google Console for app distribution, and regular app maintenance."),
