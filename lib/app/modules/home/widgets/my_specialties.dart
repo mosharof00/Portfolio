@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_tilt/flutter_tilt.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/gen/assets.gen.dart';
 import 'package:portfolio/global/custom_svg_image.dart';
@@ -31,7 +32,7 @@ class MySpecialties extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppTextStyle(
+                        AppTitleTextStyle(
                           text: "Services",
                           color: ColorName.primaryColor,
                           fontSize: 16,
@@ -82,7 +83,7 @@ class MySpecialties extends StatelessWidget {
                             child: ScaleAnimation(
                                 duration: const Duration(milliseconds: 800),
                                 child: Container(
-                                  height: 120.h,
+                                  height: 125.h,
                                   padding: EdgeInsets.all(10.r),
                                   decoration: BoxDecoration(
                                     color: Colors.grey.shade200,
@@ -121,9 +122,7 @@ class MySpecialties extends StatelessWidget {
                                       AppTextStyle(
                                         text: specialist.title,
                                         maxLines: 3,
-                                        fontSize: Responsive.isMobile(context)
-                                            ? 10.sp
-                                            : 15,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.w600,
                                       )
                                     ],
@@ -137,7 +136,7 @@ class MySpecialties extends StatelessWidget {
                   : Expanded(
                       flex: 1,
                       child: _helloContainer(
-                          margin: EdgeInsets.only(left: 10.w), height: 300.h))
+                          margin: EdgeInsets.only(left: 10.w), height:260.h))
             ],
           ),
         ),
@@ -152,39 +151,128 @@ class MySpecialties extends StatelessWidget {
 
 Widget _helloContainer(
     {double? height, double? width, EdgeInsetsGeometry? margin}) {
-  return Container(
-    height: height ?? 200.h,
-    width: width,
-    margin: margin,
-    padding: EdgeInsets.all(15),
-    decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: Colors.white70, width: 0.5)),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(
-            alignment: Alignment.topRight,
-            child: customSvgImage(
-              imagePath: Assets.icons.upArrowIcon,
-              color: ColorName.primaryColor,
-              height: 35,
-              width: 35,
-            )),
-        Spacer(),
-        AppTextStyle(
-          text: "SAY HELLO!",
-          color: Colors.yellow.shade800,
-          fontSize: 16,
+  return Tilt(
+    childLayout:  ChildLayout(
+      outer: [
+        /// Parallax here
+        Positioned(
+          child: TiltParallax(
+            size: Offset(20.0, 20.0),
+            child:  Container(
+              height: height ?? 200.h,
+              width: width,
+              margin: margin,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(10.r),
+                  border: Border.all(color: Colors.white70, width: 0.5)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                      alignment: Alignment.topRight,
+                      child: customSvgImage(
+                        imagePath: Assets.icons.upArrowIcon,
+                        color: ColorName.primaryColor,
+                        height: 35,
+                        width: 35,
+                      )),
+                  Spacer(),
+                  AppTextStyle(
+                    text: "SAY HELLO!",
+                    color: Colors.yellow.shade800,
+                    fontSize: 16,
+                  ),
+                  5.height,
+                  AppTextStyle(
+                    text: "mosharof5khan@gmail.com",
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
-        5.height,
-        AppTextStyle(
-          text: "mosharof5khan@gmail.com",
-          color: Colors.white,
-          fontSize: 16,
+        /// Parallax here
+        Align(
+        alignment: Alignment.center,
+          child: TiltParallax(
+            size: Offset(-20.0, -20.0),
+            child: Container(
+              height: height ?? 200.h,
+              width: width,
+              margin: margin,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(10.r),
+                  border: Border.all(color: Colors.white70, width: 0.5)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                      alignment: Alignment.topRight,
+                      child: customSvgImage(
+                        imagePath: Assets.icons.upArrowIcon,
+                        color: ColorName.primaryColor,
+                        height: 35,
+                        width: 35,
+                      )),
+                  Spacer(),
+                  AppTextStyle(
+                    text: "SAY HELLO!",
+                    color: Colors.yellow.shade800,
+                    fontSize: 16,
+                  ),
+                  5.height,
+                  AppTextStyle(
+                    text: "mosharof5khan@gmail.com",
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
+    ),
+    child: Container(
+      height: height ?? 200.h,
+      width: width,
+      margin: margin,
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(10.r),
+          border: Border.all(color: Colors.white70, width: 0.5)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+              alignment: Alignment.topRight,
+              child: customSvgImage(
+                imagePath: Assets.icons.upArrowIcon,
+                color: ColorName.primaryColor,
+                height: 35,
+                width: 35,
+              )),
+          Spacer(),
+          AppTextStyle(
+            text: "SAY HELLO!",
+            color: Colors.yellow.shade800,
+            fontSize: 16,
+          ),
+          5.height,
+          AppTextStyle(
+            text: "mosharof5khan@gmail.com",
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ],
+      ),
     ),
   );
 }

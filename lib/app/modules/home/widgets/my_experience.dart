@@ -1,18 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:flutter_tilt/flutter_tilt.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/global/custom_svg_image.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
 import '../../../../global/app_text_style.dart';
 import '../../../../global/global_button.dart';
-import '../../../../helper/logger.dart';
 import '../../../../helper/responsive_layout.dart';
 
 class MyExperience extends StatelessWidget {
@@ -44,7 +43,7 @@ class MyExperience extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        AppTextStyle(
+                        AppTitleTextStyle(
                           text: 'Hello I’m ',
                           color: ColorName.primaryColor,
                           fontSize: 16,
@@ -70,58 +69,117 @@ class MyExperience extends StatelessWidget {
                       color: Colors.black87,
                       textAlign: TextAlign.start,
                     ),
-                    40.height,
-                    Row(
-                      children: [
-                        globalButton(
-                          onTap: () {},
-                          text: "Lets Talk",
-                          color: Colors.black,
-                          height: 40,
-                          width: 130,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        globalButton(
-                          onTap: () {
-                            Log.i("Tapped");
-                          },
-                          color: Colors.transparent,
-                          borderColor: Colors.white,
-                          textColor: Colors.black,
-                          text: "Projects",
-                          height: 40,
-                          width: 130,
-                        ),
-                      ],
-                    ),
                     30.height,
                     Row(
                       children: [
-                        AppTextStyle(
-                          text: "200",
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        10.width,
-                        AppTextStyle(
-                          text: "Projects",
+                        Row(
+                          children: [
+                            customSvgImage(
+                                imagePath: Assets.icons.emailIcon,
+                                height: 20,
+                                width: 20),
+                            10.width,
+                            AppTextStyle(
+                              text: "mosharof5khan@gmail.com",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ],
                         ),
                         20.width,
-                        Icon(
-                          Icons.gite,
-                        ),
-                        10.width,
-                        Icon(
-                          Icons.facebook,
-                        ),
-                        10.width,
-                        Icon(
-                          Icons.facebook,
-                        ),
+                        Responsive.isTablet(context)
+                            ? 0.width
+                            : Row(
+                                children: [
+                                  customSvgImage(
+                                      imagePath: Assets.icons.callIcon,
+                                      height: 20,
+                                      width: 20),
+                                  10.width,
+                                  AppTextStyle(
+                                    text: "+880 1314859997",
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ],
+                              ),
                       ],
                     ),
+
+                    !Responsive.isTablet(context)
+                        ? 0.width
+                        : Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Row(
+                              children: [
+                                customSvgImage(
+                                    imagePath: Assets.icons.callIcon,
+                                    height: 20,
+                                    width: 20),
+                                10.width,
+                                AppTextStyle(
+                                  text: "+880 1314859997",
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ],
+                            ),
+                          ),
+                    20.height,
+                    globalButton(
+                        width: 350,
+                        onTap: () async {
+                          if (!await launchUrl(Uri.parse(
+                              "https://drive.google.com/file/d/17zbil1aQbYle9FkYhNVC5V_kp79FARU6/view?usp=sharing"))) {
+                            throw Exception(
+                                'Could not launch : https://drive.google.com/file/d/17zbil1aQbYle9FkYhNVC5V_kp79FARU6/view?usp=sharing');
+                          }
+                        },
+                        text: "My Resume",
+                        color: Colors.black,
+                        textColor: Colors.white,
+                        widget: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            AppTextStyle(
+                              text: "My Resume",
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            customSvgImage(
+                                imagePath: Assets.icons.upArrowIcon,
+                                color: ColorName.white,
+                                height: 20,
+                                width: 20)
+                          ],
+                        )),
+                    // 30.height,
+                    // Row(
+                    //   children: [
+                    //     AppTextStyle(
+                    //       text: "200",
+                    //       fontSize: 16,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //     10.width,
+                    //     AppTextStyle(
+                    //       text: "Projects",
+                    //     ),
+                    //     20.width,
+                    //     Icon(
+                    //       Icons.gite,
+                    //     ),
+                    //     10.width,
+                    //     Icon(
+                    //       Icons.facebook,
+                    //     ),
+                    //     10.width,
+                    //     Icon(
+                    //       Icons.facebook,
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               )),
@@ -139,13 +197,19 @@ Widget _image(
     children: [
       Align(
         alignment: alignment,
-        child: SizedBox(
-          height:Responsive.isMobile(context) ||Responsive.isTablet(context)? 500:600,
-          width: Responsive.isMobile(context) ||Responsive.isTablet(context)?400:500,
-
-          child: Image.asset(
-            Assets.images.mosharofSmarterPng.path,
-            fit: BoxFit.cover,
+        child: Tilt(
+          shadowConfig: ShadowConfig(disable: true),
+          child: SizedBox(
+            height: Responsive.isMobile(context) || Responsive.isTablet(context)
+                ? 500
+                : 600,
+            width: Responsive.isMobile(context) || Responsive.isTablet(context)
+                ? 400
+                : 500,
+            child: Image.asset(
+              Assets.images.mosharofSmarterPng.path,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),

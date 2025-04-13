@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/app/models/project_model.dart';
 import 'package:portfolio/app/models/speciality_model.dart';
@@ -66,6 +70,48 @@ class HomeController extends GetxController {
       Log.e(e);
       isProjectLoading.value = false;
     }
+  }
+
+  ///   for worked with
+  final RxInt currentIndex = 0.obs;
+  List<String> workedWith = [
+    "☁️ Google Cloud",
+    "📍 Google Maps & ETA",
+    "📡 Pub/Sub Messaging",
+    "🚀 Play Console",
+    "🔥 ML Kit (OCR, Face, Barcode)",
+    "📬 Push Notifications",
+    "🔐 App Check & Rules",
+    "🔗 Deep Linking",
+    "⚙️ Remote Config",
+    "🧠 Supabase Edge Fn",
+    "🗃️ Supabase SQL & RPC",
+    "💾 Local Storage (AES)",
+    "🛵 Delivery Tracking",
+    "💳 Payment Gateway",
+    "🧾 Auto Invoices",
+    "🛍️ Razorpay & Others",
+    "🔒 Role-based Access",
+    "📬 Realtime Chat",
+    "✅ Typing Indicators",
+    "🎥 Video Pay Features",
+    "🔄 Route Restore",
+    "🛡️ Root/JB Detection",
+    "⚙️ CI/CD (Fastlane/GitHub)",
+    "📈 Crash & Analytics",
+  ];
+
+  List<List<String>> get workedWithPagedList {
+    const itemsPerPage = 3;
+    List<List<String>> chunks = [];
+    for (int i = 0; i < workedWith.length; i += itemsPerPage) {
+      chunks.add(workedWith.sublist(
+          i,
+          i + itemsPerPage > workedWith.length
+              ? workedWith.length
+              : i + itemsPerPage));
+    }
+    return chunks;
   }
 
   @override
