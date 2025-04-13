@@ -12,6 +12,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/agile_methodologies_icon.svg
+  String get agileMethodologiesIcon =>
+      'assets/icons/agile_methodologies_icon.svg';
+
   /// File path: assets/icons/arrow_back_icon.svg
   String get arrowBackIcon => 'assets/icons/arrow_back_icon.svg';
 
@@ -22,18 +26,57 @@ class $AssetsIconsGen {
   String get backendDevelopmentIccon =>
       'assets/icons/backend_development_iccon.svg';
 
+  /// File path: assets/icons/call_icon.svg
+  String get callIcon => 'assets/icons/call_icon.svg';
+
+  /// File path: assets/icons/ci_cd_icon.svg
+  String get ciCdIcon => 'assets/icons/ci_cd_icon.svg';
+
+  /// File path: assets/icons/clean_architecture_icon.svg
+  String get cleanArchitectureIcon =>
+      'assets/icons/clean_architecture_icon.svg';
+
+  /// File path: assets/icons/cloud-native_real-time_icon.svg
+  String get cloudNativeRealTimeIcon =>
+      'assets/icons/cloud-native_real-time_icon.svg';
+
+  /// File path: assets/icons/email_icon.svg
+  String get emailIcon => 'assets/icons/email_icon.svg';
+
   /// File path: assets/icons/flutter_icon.svg
   String get flutterIcon => 'assets/icons/flutter_icon.svg';
+
+  /// File path: assets/icons/git_logo.svg
+  String get gitLogo => 'assets/icons/git_logo.svg';
+
+  /// File path: assets/icons/link_logo.svg
+  String get linkLogo => 'assets/icons/link_logo.svg';
+
+  /// File path: assets/icons/linkden_logo.svg
+  String get linkdenLogo => 'assets/icons/linkden_logo.svg';
+
+  /// File path: assets/icons/message_icon.svg
+  String get messageIcon => 'assets/icons/message_icon.svg';
 
   /// File path: assets/icons/up_arrow_icon.svg
   String get upArrowIcon => 'assets/icons/up_arrow_icon.svg';
 
   /// List of all assets
   List<String> get values => [
+    agileMethodologiesIcon,
     arrowBackIcon,
     back,
     backendDevelopmentIccon,
+    callIcon,
+    ciCdIcon,
+    cleanArchitectureIcon,
+    cloudNativeRealTimeIcon,
+    emailIcon,
     flutterIcon,
+    gitLogo,
+    linkLogo,
+    linkdenLogo,
+    messageIcon,
     upArrowIcon,
   ];
 }

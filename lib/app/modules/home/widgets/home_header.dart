@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:portfolio/global/custom_icon_button.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
@@ -38,23 +38,21 @@ class HomeHeader extends StatelessWidget {
             !Responsive.isMobile(context)
                 ? SizedBox.shrink()
                 : Align(
-              alignment: Alignment.topRight,
-              child: SizedBox(
-                height: Responsive2.isMobile(context) ? 300.h : 350.h,
-                width: Get.width,
-                child: Image.asset(
-                  Assets.images.mosharofHeaderPng.path,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ).animate()
-                .fade(duration: 300.ms)
-                .slideX(
-              begin: 1.0,  // Start from 100% to the right
-              end: 0.0,    // Slide to original position
-              duration: 1000.ms,
-              curve: Curves.easeOut,
-            ),
+                    alignment: Alignment.topRight,
+                    child: SizedBox(
+                      height: Responsive2.isMobile(context) ? 300.h : 350.h,
+                      width: Get.width,
+                      child: Image.asset(
+                        Assets.images.mosharofHeaderPng.path,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ).animate().fade(duration: 300.ms).slideX(
+                      begin: 1.0, // Start from 100% to the right
+                      end: 0.0, // Slide to original position
+                      duration: 1000.ms,
+                      curve: Curves.easeOut,
+                    ),
             Row(
               children: [
                 Expanded(
@@ -67,9 +65,10 @@ class HomeHeader extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            AppTextStyle(
-                              text: '----------   Hi, I’m ✌',
-                              fontSize: 12.sp,
+                            AppTitleTextStyle(
+                              text: '--------   Hi, I’m ✌',
+                              fontSize: 8.sp,
+                              color: ColorName.primaryColor,
                             ).animate().fade(duration: 400.ms).slideX(
                                 begin: -0.5,
                                 end: 0,
@@ -103,9 +102,7 @@ class HomeHeader extends StatelessWidget {
                               text: "Lets Talk",
                               color: Colors.black,
                               height: 40.h,
-                              width: Responsive.isMobile(context)
-                                  ? 110.w
-                                  : 125,
+                              width: Responsive.isMobile(context) ? 110.w : 125,
                             ).animate().fade(duration: 1000.ms).slideX(
                                   begin: -1,
                                   end: 0,
@@ -120,12 +117,12 @@ class HomeHeader extends StatelessWidget {
                               },
                               color: Colors.transparent,
                               borderColor: Colors.white,
-                              textColor:Responsive2.isMobileToTablet(context)?Colors.white: Colors.black,
+                              textColor: Responsive2.isMobileToTablet(context)
+                                  ? Colors.white
+                                  : Colors.black,
                               text: "Projects",
                               height: 40.h,
-                              width: Responsive.isMobile(context)
-                                  ? 110.w
-                                  : 125,
+                              width: Responsive.isMobile(context) ? 110.w : 125,
                             ).animate().fade(duration: 1200.ms).slideX(
                                   begin: -1,
                                   end: 0,
@@ -135,26 +132,84 @@ class HomeHeader extends StatelessWidget {
                         ),
                         30.height,
                         Row(
+                          spacing: Responsive2.isTablet(context) ?5:15,
                           children: [
-                            AppTextStyle(
-                              text: "200",
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                            AppTitleTextStyle(
+                              text: "30+",
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500,
+                              color: ColorName.primaryColor,
                             ),
-                            10.width,
+
                             AppTextStyle(
                               text: "Projects",
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
                             ),
-                            20.width,
-                           // SvgPicture.asset(Assets.icons.git),
-                            10.width,
-                            Icon(
-                              Icons.facebook,
+
+                            Container(
+                              height: 20,
+                              width: 1,
+                              color: Colors.grey,
                             ),
-                            10.width,
-                            Icon(
-                              Icons.facebook,
+
+                            CustomIconButton(
+                                size: 25,
+                                backgroundColor: Colors.white,
+                                onPressed: () async {
+                                  if (!await launchUrl(Uri.parse(
+                                      "https://github.com/mosharof00"))) {
+                                    throw Exception(
+                                        'Could not launch : https://github.com/mosharof00');
+                                  }
+                                },
+                                icon: SvgPicture.asset(Assets.icons.gitLogo)),
+
+                            CustomIconButton(
+                                size: 25,
+                                backgroundColor: Colors.white,
+                                onPressed: () async {
+                                  if (!await launchUrl(Uri.parse(
+                                      "https://www.linkedin.com/in/mosharof-khan/"))) {
+                                    throw Exception(
+                                        'Could not launch : https://www.linkedin.com/in/mosharof-khan/');
+                                  }
+                                },
+                                icon: SvgPicture.asset(
+                                  Assets.icons.linkdenLogo,
+                                  height: Get.height,
+                                  width: Get.width,
+                                )),
+
+                            IconButton(
+                              color: Colors.white,
+                              onPressed: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    "https://www.facebook.com/mdmosharofkhan.khan.3"))) {
+                                  throw Exception(
+                                      'https://www.facebook.com/mdmosharofkhan.khan.3');
+                                }
+                              },
+                              padding: EdgeInsets.zero,
+                              icon: Icon(
+                                size: 30,
+                                Icons.facebook,
+                                color: Colors.black,
+                              ),
                             ),
+                            CustomIconButton(
+                                size: 25,
+                                backgroundColor: Colors.white,
+                                onPressed: () async {
+                                  // if (!await launchUrl(Uri.parse(""))) {
+                                  //   throw Exception('Could not launch : ');
+                                  // }
+                                },
+                                icon: SvgPicture.asset(
+                                  Assets.icons.linkLogo,
+                                  height: Get.height,
+                                  width: Get.width,
+                                )),
                           ],
                         ).animate().fade(duration: 1200.ms).slideX(
                               begin: -1,
@@ -186,14 +241,12 @@ class HomeHeader extends StatelessWidget {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                          ).animate()
-                              .fade(duration: 200.ms)
-                              .slideX(
-                            begin: 1.0,  // Start from 100% to the right
-                            end: 0.0,    // Slide to original position
-                            duration: 1000.ms,
-                            curve: Curves.easeOut,
-                          ),
+                          ).animate().fade(duration: 200.ms).slideX(
+                                begin: 1.0, // Start from 100% to the right
+                                end: 0.0, // Slide to original position
+                                duration: 1000.ms,
+                                curve: Curves.easeOut,
+                              ),
                         ],
                       )),
               ],
@@ -246,8 +299,7 @@ class HomeHeader extends StatelessWidget {
                               Container(
                                 height: 50,
                                 width: 50,
-                                decoration:
-                                    BoxDecoration(color: Colors.black),
+                                decoration: BoxDecoration(color: Colors.black),
                                 child: Center(
                                   child: Icon(
                                     Icons.menu_sharp,

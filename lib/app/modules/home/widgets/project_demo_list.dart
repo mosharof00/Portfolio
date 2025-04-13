@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -8,7 +8,10 @@ import 'package:portfolio/global/app_text_style.dart';
 import 'package:portfolio/global/shimmer_loading.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
+import '../../../../global/custom_svg_image.dart';
+import '../../../../global/global_button.dart';
 import '../../../../helper/project_demo_layout.dart';
 import '../../../../helper/responsive_layout.dart';
 
@@ -27,12 +30,7 @@ class ProjectDemoList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppTextStyle(
-              text: "Portfolio",
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: ColorName.primaryColor,
-            ),
+            AppTitleTextStyle(text: "Portfolio", color: ColorName.primaryColor),
             AppTextStyle(
               text: "My Recent Projects",
               fontSize: 25,
@@ -51,9 +49,9 @@ class ProjectDemoList extends StatelessWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 15.h,
                       crossAxisSpacing: 15.w,
-                      itemCount: 4,
+                      itemCount: 2,
                       itemBuilder: (context, index) {
-                        final project = controller.projectList[index];
+                        // final project = controller.projectList[index];
                         return AnimationConfiguration.staggeredList(
                           position: index,
                           duration: const Duration(milliseconds: 300),
@@ -82,6 +80,30 @@ class ProjectDemoList extends StatelessWidget {
                 }
               }),
             ),
+            30.height,
+            globalButton(
+                width: Responsive.isMobile(context) ? Get.width : 900,
+                onTap: () {},
+                text: "All Projects",
+                color: Colors.black,
+                textColor: Colors.white,
+                widget: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppTextStyle(
+                      text: "All Projects",
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    30.width,
+                    customSvgImage(
+                        imagePath: Assets.icons.upArrowIcon,
+                        color: ColorName.white,
+                        height: 20,
+                        width: 20)
+                  ],
+                )),
           ],
         ));
   }
