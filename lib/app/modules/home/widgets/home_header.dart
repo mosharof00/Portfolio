@@ -94,15 +94,15 @@ class HomeHeader extends StatelessWidget {
                             end: 0,
                             duration: 1000.ms,
                             curve: Curves.easeOut),
-                        40.height,
+                        Responsive.isMobile(context) ? Spacer() : 40.height,
                         Row(
                           children: [
                             globalButton(
                               onTap: () {},
                               text: "Lets Talk",
                               color: Colors.black,
-                              height: 40.h,
-                              width: Responsive.isMobile(context) ? 110.w : 125,
+                              height: 35.h,
+                              width: Responsive.isMobile(context) ? 90.w : 125,
                             ).animate().fade(duration: 1000.ms).slideX(
                                   begin: -1,
                                   end: 0,
@@ -121,8 +121,8 @@ class HomeHeader extends StatelessWidget {
                                   ? Colors.white
                                   : Colors.black,
                               text: "Projects",
-                              height: 40.h,
-                              width: Responsive.isMobile(context) ? 110.w : 125,
+                              height: 35.h,
+                              width: Responsive.isMobile(context) ? 90.w : 125,
                             ).animate().fade(duration: 1200.ms).slideX(
                                   begin: -1,
                                   end: 0,
@@ -130,9 +130,12 @@ class HomeHeader extends StatelessWidget {
                                 ),
                           ],
                         ),
-                        30.height,
+                        10.height,
                         Row(
-                          spacing: Responsive2.isTablet(context) ?5:15,
+                          spacing: Responsive.isMobile(context) ||
+                                  Responsive2.isTablet(context)
+                              ? 5
+                              : 15,
                           children: [
                             AppTitleTextStyle(
                               text: "30+",
@@ -140,22 +143,19 @@ class HomeHeader extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               color: ColorName.primaryColor,
                             ),
-
                             AppTextStyle(
                               text: "Projects",
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                             ),
-
                             Container(
-                              height: 20,
+                              height: 18,
                               width: 1,
                               color: Colors.grey,
                             ),
-
                             CustomIconButton(
-                                size: 25,
-                                backgroundColor: Colors.white,
+                                size: 20,
+                                backgroundColor: Colors.transparent,
                                 onPressed: () async {
                                   if (!await launchUrl(Uri.parse(
                                       "https://github.com/mosharof00"))) {
@@ -164,9 +164,8 @@ class HomeHeader extends StatelessWidget {
                                   }
                                 },
                                 icon: SvgPicture.asset(Assets.icons.gitLogo)),
-
                             CustomIconButton(
-                                size: 25,
+                                size: 20,
                                 backgroundColor: Colors.white,
                                 onPressed: () async {
                                   if (!await launchUrl(Uri.parse(
@@ -180,7 +179,6 @@ class HomeHeader extends StatelessWidget {
                                   height: Get.height,
                                   width: Get.width,
                                 )),
-
                             IconButton(
                               color: Colors.white,
                               onPressed: () async {
@@ -192,13 +190,13 @@ class HomeHeader extends StatelessWidget {
                               },
                               padding: EdgeInsets.zero,
                               icon: Icon(
-                                size: 30,
+                                size: 25,
                                 Icons.facebook,
                                 color: Colors.black,
                               ),
                             ),
                             CustomIconButton(
-                                size: 25,
+                                size: 20,
                                 backgroundColor: Colors.white,
                                 onPressed: () async {
                                   // if (!await launchUrl(Uri.parse(""))) {

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../gen/colors.gen.dart';
 import 'package:get/get.dart';
@@ -36,7 +35,7 @@ class AppTextStyle extends StatelessWidget {
         color: color ?? ColorName.black,
         fontSize: fontSize ?? 14,
         fontWeight: fontWeight,
-        height: height?.h,
+        height: height,
         decoration: decoration,
             decorationColor: decorationColor,
       )),
@@ -76,7 +75,7 @@ class AppTitleTextStyle extends StatelessWidget {
             color: color ?? ColorName.black,
             fontSize: fontSize ?? 14,
             fontWeight: fontWeight,
-            height: height?.h,
+            height: height,
             decoration: decoration,
             decorationColor: decorationColor,
           )),

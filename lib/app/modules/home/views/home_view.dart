@@ -7,11 +7,9 @@ import 'package:portfolio/app/modules/home/widgets/my_specialties.dart';
 import 'package:portfolio/global/app_text_style.dart';
 import 'package:portfolio/global/sizedbox_extension.dart';
 
-import '../../../../gen/assets.gen.dart';
-import '../../../../global/cached_image_helper.dart';
 import '../../../../helper/responsive_layout.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/home_static_list.dart';
+import '../widgets/end_part.dart';
 import '../widgets/worked_with.dart';
 import '../widgets/project_demo_list.dart';
 
@@ -42,6 +40,8 @@ class HomeView extends GetView<HomeController> {
               WorkedWith(
                 controller: controller,
               ),
+              30.height,
+              EndPart(),
               50.height,
             ],
           ),

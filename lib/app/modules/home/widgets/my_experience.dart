@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_tilt/flutter_tilt.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/global/custom_svg_image.dart';
@@ -87,7 +86,7 @@ class MyExperience extends StatelessWidget {
                           ],
                         ),
                         20.width,
-                        Responsive.isTablet(context)
+                        !Responsive.isWeb(context)
                             ? 0.width
                             : Row(
                                 children: [
@@ -106,7 +105,7 @@ class MyExperience extends StatelessWidget {
                       ],
                     ),
 
-                    !Responsive.isTablet(context)
+                    Responsive.isWeb(context)
                         ? 0.width
                         : Padding(
                             padding: EdgeInsets.only(top: 10),
@@ -197,19 +196,16 @@ Widget _image(
     children: [
       Align(
         alignment: alignment,
-        child: Tilt(
-          shadowConfig: ShadowConfig(disable: true),
-          child: SizedBox(
-            height: Responsive.isMobile(context) || Responsive.isTablet(context)
-                ? 500
-                : 600,
-            width: Responsive.isMobile(context) || Responsive.isTablet(context)
-                ? 400
-                : 500,
-            child: Image.asset(
-              Assets.images.mosharofSmarterPng.path,
-              fit: BoxFit.cover,
-            ),
+        child: SizedBox(
+          height: Responsive.isMobile(context) || Responsive.isTablet(context)
+              ? 500
+              : 600,
+          width: Responsive.isMobile(context) || Responsive.isTablet(context)
+              ? 400
+              : 500,
+          child: Image.asset(
+            Assets.images.mosharofSmarterPng.path,
+            fit: BoxFit.cover,
           ),
         ),
       ),
