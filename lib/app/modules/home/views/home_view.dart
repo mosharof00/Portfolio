@@ -40,7 +40,7 @@ class HomeView extends GetView<HomeController> {
               WorkedWith(
                 controller: controller,
               ),
-              30.height,
+              50.height,
               EndPart(),
               50.height,
             ],

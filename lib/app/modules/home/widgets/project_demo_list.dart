@@ -38,7 +38,7 @@ class ProjectDemoList extends StatelessWidget {
             ),
             20.height,
             SizedBox(
-              width: Responsive.isMobile(context) ? Get.width : 900,
+              width: Responsive.isMobile(context) ? Get.width : 1200,
               child: Obx(() {
                 if (controller.isProjectLoading.value) {
                   return MasonryGridView.count(
